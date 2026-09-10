@@ -1,17 +1,15 @@
-import {CARS} from "./data.js"
+import { CARS } from "./data.js"
 
 window.addEventListener('DOMContentLoaded', main)
 
 function main() {
 
-    renderCars(CARS)
-    getRating()
-    console.log(CARS)
+  renderCars(CARS)
 }
 
 function getCarCard(cars) {
 
-    return `
+  return `
     <div class="card">
         <div class="car-img">
           <img src="${cars.Image}" alt="">
@@ -19,10 +17,13 @@ function getCarCard(cars) {
 
         <div class="car-detail">
           <div class="rating">
-            
+            <div class="progressbar">
+            <div class="progressbox">
+            <span class="progressvalue">10%</span>
+            ${getRating(cars.Rating)}
+              </div>
+            </div>
           </div>
-        </div>
-        </div>
           <h4 class="car-model">${cars.Title}</h4>
           <button class="btn detail-btn">Show Detail</button>
 
@@ -32,23 +33,23 @@ function getCarCard(cars) {
 }
 
 function renderCars(cars) {
-   const wrapper = document.querySelector(".cars-wrapper")
-   wrapper.innerHTML = ``
-   
+  const wrapper = document.querySelector(".cars-wrapper")
+  wrapper.innerHTML = ``
 
-   for (let i = 0; i < CARS.length; i++) {
-      wrapper.innerHTML += getCarCard(CARS[i])
-   }
+
+  for (let i = 0; i < cars; i++) {
+    wrapper.innerHTML += getCarCard(cars[i])
+  }
 
 }
 
 function getRating(bars) {
-    const progressBox = document.querySelector(".progressbox")
-    const progressValue = document.querySelector(".progressvalue")
-    const progressRange = document.querySelector("#progressRange")
+  const progressBox = document.querySelector(".progressbox")
+  const progressValue = document.querySelector(".progressvalue")
 
-    progressBox.style.width = `${progressRange.value}%`
-    progressValue.textContent = `${progressRange.value}%`    
+  console.log
+  progressBox.style.width = `${bars}%`
+  progressValue.textContent = `${bars}%`
 
 }
 
