@@ -53,9 +53,8 @@ const CARS = [
         id: 7,
         Title: "Mclaren",
         Description: "BMW is a major German Official BMW Website company that builds luxury cars, sports vehicles, and motorcycles ",
-        Price: "140000",
-        Image: "https://cars-assets-production.mclaren.com/1410/conversions/mclaren_automotive_750s_spider_front_right_profile-1000.png",
         Price: "320000",
+        Image: "https://cars-assets-production.mclaren.com/1410/conversions/mclaren_automotive_750s_spider_front_right_profile-1000.png",
         Rating: 90
     },
        {
