@@ -1,34 +1,32 @@
 import { CARS } from "./data.js"
 
-// window.addEventListener('DOMContentLoaded', main)
+window.addEventListener('DOMContentLoaded', main)
 
-// function main() {
+function main() {
 
-//   renderCars(CARS)
-// }
+  renderCars(CARS)
+  handleSearch()
+
+}
 
 function getCarCard(cars) {
 
   return `
     <div class="card">
-        <div class="car-img">
-          <img src="${cars.Image}" alt="">
-        </div>
-
-        <div class="car-detail">
-          <div class="rating">
-            <div class="progressbar">
-            <div class="progressbox">
-            <span class="progressvalue">10%</span>
-            ${getRating(cars.Rating)}
-              </div>
-            </div>
-          </div>
-          <h4 class="car-model">${cars.Title}</h4>
-          <button class="btn detail-btn">Show Detail</button>
-
-        </div>
+      <div class="car-img">
+        <img src="${cars.image}" alt="">
       </div>
+
+      <div class="car-detail">
+        <div class="progressbar">
+          <div class="progressbox" style="width: ${cars.rating}%;">
+            <span class="progressvalue">${cars.rating}%</span>
+          </div>
+        </div>
+        <h4 class="car-model">${cars.title}</h4>
+        <button class="detail-btn">Show Detail</button>
+      </div>
+    </div>
     `
 }
 
@@ -37,19 +35,29 @@ function renderCars(cars) {
   wrapper.innerHTML = ``
 
 
-  for (let i = 0; i < cars; i++) {
+  for (let i = 0; i < cars.length; i++) {
     wrapper.innerHTML += getCarCard(cars[i])
   }
 
 }
 
-function getRating(bars) {
-  const progressBox = document.querySelector(".progressbox")
-  const progressValue = document.querySelector(".progressvalue")
+function handleSearch() {
 
-  progressBox.style.width = `${bars}%`
-  progressValue.textContent = `${bars}%`
+  const carInput = document.querySelector("#car-models")
+  const form = document.querySelector("form")
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault()
+    let searchTerm = carInput.value.toLowerCase()
+    console.log(searchTerm)
+
+    let matchRecipes = CARS.filter((object) =>
+      object.category.toLowerCase().includes(searchTerm) || object.title.toLowerCase().includes(searchTerm))
+    console.log(matchRecipes)
+
+    renderRecipes(matchRecipes)
+  })
+
 
 }
-
 
