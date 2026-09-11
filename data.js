@@ -41,7 +41,7 @@ const CARS = [
         Image: "https://www.bmw-m.com/content/dam/bmw/marketBMW_M/www_bmw-m_com/all-models/model-navigation/bmw-x6-m-competition-flyout1.png",
         Rating: 97
     },
-       {
+    {
         id: 6,
         Title: "Daewook",
         Description: " was a major South Korean automotive brand that was acquired by General Motors in 2002 and eventually rebranded into GM Korea, with its vehicle lineup shifted to Chevrolet",
@@ -49,7 +49,7 @@ const CARS = [
         Price: "30000",
         Rating: 74
     },
-       {
+    {
         id: 7,
         Title: "Mclaren",
         Description: "BMW is a major German Official BMW Website company that builds luxury cars, sports vehicles, and motorcycles ",
@@ -57,28 +57,32 @@ const CARS = [
         Image: "https://cars-assets-production.mclaren.com/1410/conversions/mclaren_automotive_750s_spider_front_right_profile-1000.png",
         Rating: 90
     },
-       {
+    {
         id: 8,
         Title: "Chrysler",
         Description: "Chrysler is an American automobile brand owned by Stellantis that focuses on upscale family vehicles and innovative minivans  ",
         Price: "57000",
         Image: "https://platform.cstatic-images.com/in/v2/stock_photos/51b1ffba-acda-47ea-966f-a615b69b5d5b/0ad75471-b962-4eaf-9aaf-d8ff789ee4bc.png",
-        Rating: 78                  
-    },   {
+        Rating: 78
+    }, {
         id: 9,
         Title: "Jaguar",
         Description: "Jaguar is a British luxury and sports car brand known for sleek designs, powerful performance, and a rich racing heritage",
         Price: "79900",
         Image: "https://cars.usnews.com/static/images/Auto/izmo/i159615080/2022_jaguar_f_type_angularfront.jpg",
-        Rating: 80
+        Rating: 80,
+        Year: 1935,
+        Model: "F-type Jaguar"
     },
-       {
+    {
         id: 10,
         Title: "Chevrolet",
         Description: "Chevrolet, commonly known as Chevy, is a major American automobile manufacturer founded in 1911 and operated as a division of General Motors  ",
         Price: "155000",
         Image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdNu8WphvetDOdp6fn1qFSTPzFXpjlHRnQdqtxtHxJbg&s=10 ",
-        Rating: 80
+        Rating: 80,
+        Year: 1913,
+        Model: "Chevrolet Suburban"
     },
 ]
 
