@@ -5,8 +5,7 @@ window.addEventListener('DOMContentLoaded', main)
 function main() {
 
   renderCars(CARS)
-  handleSearch()
-
+  
 }
 
 function getCarCard(cars) {
@@ -30,6 +29,7 @@ function getCarCard(cars) {
     `
 }
 
+
 function renderCars(cars) {
   const wrapper = document.querySelector(".cars-wrapper")
   wrapper.innerHTML = ``
@@ -41,23 +41,13 @@ function renderCars(cars) {
 
 }
 
-function handleSearch() {
+function getRating(bars) {
+  const progressBox = document.querySelector(".progressbox")
+  const progressValue = document.querySelector(".progressvalue")
 
-  const carInput = document.querySelector("#car-models")
-  const form = document.querySelector("form")
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault()
-    let searchTerm = carInput.value.toLowerCase()
-    console.log(searchTerm)
-
-    let matchRecipes = CARS.filter((object) =>
-      object.category.toLowerCase().includes(searchTerm) || object.title.toLowerCase().includes(searchTerm))
-    console.log(matchRecipes)
-
-    renderRecipes(matchRecipes)
-  })
-
+  progressBox.style.width = `${bars}%`
+  progressValue.textContent = `${bars}%`
 
 }
+
 
