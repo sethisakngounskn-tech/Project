@@ -1,12 +1,14 @@
 import { CARS } from "./data.js"
 
-window.addEventListener('DOMContentLoaded', main)
+// window.addEventListener('DOMContentLoaded', main)
 
-function main() {
+// function main() {
 
-  renderCars(CARS)
-  
-}
+//   renderCars(CARS)
+//   handleSearch()
+//   filterPrice()
+
+// }
 
 function getCarCard(cars) {
 
@@ -29,7 +31,6 @@ function getCarCard(cars) {
     `
 }
 
-
 function renderCars(cars) {
   const wrapper = document.querySelector(".cars-wrapper")
   wrapper.innerHTML = ``
@@ -41,13 +42,28 @@ function renderCars(cars) {
 
 }
 
-function getRating(bars) {
-  const progressBox = document.querySelector(".progressbox")
-  const progressValue = document.querySelector(".progressvalue")
+function handleSearch() {
 
-  progressBox.style.width = `${bars}%`
-  progressValue.textContent = `${bars}%`
+  const carInput = document.querySelector("#searchCar")
+  const form = document.querySelector("form")
+
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault()
+    let searchTerm = carInput.value.toLowerCase()
+    console.log(searchTerm)
+
+    let matchCars = CARS.filter((object) =>
+      object.price.includes(searchTerm) || object.title.toLowerCase().includes(searchTerm))
+    console.log(matchCars)
+
+    renderCars(matchCars)
+  })
+
 
 }
 
+function filterPrice() {
+  const priceBtn = document.querySelector("#priceBtn")
 
+}
