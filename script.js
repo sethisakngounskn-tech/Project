@@ -1,70 +1,52 @@
-import { CARS } from "./data.js"
+console.log("everything is ready")
 
-window.addEventListener('DOMContentLoaded', main)
-
-function main() {
-
-  renderCars(CARS)
-  handleSearch()
-  filterPrice()
-
-}
-
-function getCarCard(cars) {
-
-  return `
-    <div class="card">
-      <div class="car-img">
-        <img src="${cars.image}" alt="">
-      </div>
-
-      <div class="car-detail">
-        <div class="progressbar">
-          <div class="progressbox" style="width: ${cars.rating}%;">
-            <span class="progressvalue">${cars.rating}%</span>
-          </div>
-        </div>
-        <h4 class="car-model">${cars.title}</h4>
-        <button class="detail-btn">Show Detail</button>
-      </div>
-    </div>
-    `
-}
-
-function renderCars(cars) {
-  const wrapper = document.querySelector(".cars-wrapper")
-  wrapper.innerHTML = ``
+const inputValue = document.querySelector("#inputValue")
+const filter = document.querySelector("#filter")
+const resetBtn = document.querySelector("#resetBtn")
+const container = document.querySelector(".container")
 
 
-  for (let i = 0; i < cars.length; i++) {
-    wrapper.innerHTML += getCarCard(cars[i])
-  }
 
-}
-
-function handleSearch() {
-
-  const carInput = document.querySelector("#searchCar")
-  const form = document.querySelector("form")
+inputValue.addEventListener("change", () => {
+    let numbers = parseInt(inputValue.value)
 
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault()
-    let searchTerm = carInput.value.toLowerCase()
-    console.log(searchTerm)
+    for (let i = 1; i <= numbers; i++) {
 
-    let matchCars = CARS.filter((object) =>
-      object.price.includes(searchTerm) || object.title.toLowerCase().includes(searchTerm))
-    console.log(matchCars)
+        if (i % 2 == 0) {
+        container.innerHTML += `
+            <div class="number even">${i}</div>
+        `
+        
+        } else {
+            container.innerHTML += `
+                <div class="number odd">${i}</div>
+            `
+        }
 
-    renderCars(matchCars)
-  })
+    }
 
+})
+const allNumbers = document.querySelectorAll(".number")
 
-}
+filter.addEventListener("change", () => {
+    
+    let selected = filter.value
 
-function filterPrice() {
-  const priceBtn = document.querySelector("#priceBtn")
+    const allNumbers = document.querySelectorAll(".number")
+    console.log(allNumbers)
 
-}
+    for (let i = 0; i < allNumbers.length; i++) {
+        let number = allNumbers[i]
+
+        if (number.classList.contains(selected)) {
+            number.style.opacity = 1
+        } else {
+            number.style.opacity = 0.2
+        }
+    }
+    
+    
+
+})
 
